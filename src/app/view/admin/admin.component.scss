@@ -1,0 +1,25 @@
+.navigation {
+  .left-nav {
+    width: 25vw;
+    .nav-list {
+      padding-top: 0;
+      .nav-item {
+        cursor: pointer;
+        transition: background-color 0.6s ease;
+        &:hover {
+          background-color: lightgray;
+        }
+      }
+    }
+  }
+  .content {
+    width: 75vw;
+  }
+}
+.button-container {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+  flex-direction: row-reverse;
+  
+}

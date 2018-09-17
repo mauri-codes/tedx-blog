@@ -1,7 +1,15 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
+import { 
+  MatButtonModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatCheckboxModule,
+  MatListModule
+} from '@angular/material';
+
+import { PostService } from './services/post.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'
@@ -14,7 +22,9 @@ let MaterialModules =
   [
     MatButtonModule,
     MatCheckboxModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ]
 
 @NgModule({
@@ -30,7 +40,9 @@ let MaterialModules =
     BrowserAnimationsModule,
     ... MaterialModules
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

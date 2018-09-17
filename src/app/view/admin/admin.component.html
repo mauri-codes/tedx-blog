@@ -1,5 +1,44 @@
-<h1>{{ title }}</h1>
-
-<quill-editor
-    (onContentChanged)="changedContent($event)"
-></quill-editor>
+<mat-sidenav-container class="navigation">
+    <mat-sidenav
+        class="left-nav"
+        fixedInViewport
+        [fixedTopGap] = "50"
+        mode="side"
+        opened>
+        <mat-list class="nav-list">
+            <mat-list-item 
+                class="nav-item"
+                (click)="newBlogPost(event)">
+                New Blog Post
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item 
+                class="nav-item"
+                (click)="listOfPosts(event)">
+                List of Posts
+            </mat-list-item>
+          </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content
+        *ngIf="currentPage == 'newBlogPost'"
+        class="content">
+        <h3>- Add new Post</h3>
+        <quill-editor
+        (onContentChanged)="changedContent($event)"
+        ></quill-editor>
+        <div class="button-container">
+            <button 
+            mat-raised-button
+            color="accent"
+            (click)="savePost(event)"
+            >
+                Save Post
+            </button>
+        </div>
+    </mat-sidenav-content>
+    <mat-sidenav-content
+        *ngIf="currentPage == 'listOfPosts'"
+        class="content">
+        list of posts
+    </mat-sidenav-content>
+</mat-sidenav-container>
